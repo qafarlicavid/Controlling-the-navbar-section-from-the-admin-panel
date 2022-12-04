@@ -1,0 +1,25 @@
+﻿@model List<DemoApplication.Database.Models.Navbar>
+
+@foreach (var navbar in Model)
+{
+    <li class="menu-item has-children">
+        <a asp-route="@navbar.ToURL">
+            @if (navbar.IsMain)
+            {
+                <b>@navbar.Name</b>
+            }
+            else
+            {
+                @navbar.Name
+            }
+
+            <i class="fas fa-chevron-down dropdown-arrow"></i>
+        </a>
+        <ul class="sub-menu">
+            @foreach (var subnavbar in navbar.subNavbars)
+            {
+                <li><a asp-route="@subnavbar.ToURL">@subnavbar.Name</a></li>
+            }
+        </ul>
+    </li>
+}

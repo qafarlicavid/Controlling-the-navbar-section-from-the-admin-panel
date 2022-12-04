@@ -1,0 +1,19 @@
+﻿@model List<DemoApplication.Database.Models.Navbar>
+
+@foreach (var navbar in @Model)
+{
+   <div class=" col-xl-3 col-lg-2 col-sm-6">
+        <div class="single-footer pb--40">
+            <div class="footer-title">
+                <h3>@navbar.Name</h3>
+            </div>
+            <ul class="footer-list normal-list">
+                @foreach (var subnavbar in navbar.subNavbars)
+                {
+                    <li><a href="@subnavbar.ToURL"> @subnavbar.Name</a></li>
+                }
+
+            </ul>
+        </div>
+    </div>
+}

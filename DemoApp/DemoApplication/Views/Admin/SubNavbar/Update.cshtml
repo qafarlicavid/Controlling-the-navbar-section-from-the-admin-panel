@@ -1,0 +1,36 @@
+﻿@using DemoApplication.ViewModels.Admin.SubNavbar
+@model UpdateViewModel
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Navbars</h4>
+            </div>
+            <div class="card-body">
+                <div class="general-label">
+                    <form method="POST" asp-route="admin-subnavbar-update" >
+                        <select asp-for="NavbarId" asp-items="@(new SelectList(Model.Navbars, nameof(NavbarListItemViewModel.Id), nameof(NavbarListItemViewModel.Name)))" class="form-select">   </select>                      
+                        <div class="form-group">
+                            <label asp-for="Name"></label>
+                            <input asp-for="Name" class="form-control">
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ToURL"></label>
+                            <input asp-for="ToURL" class="form-control">
+                            <span asp-validation-for="ToURL" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Order"></label>
+                            <input asp-for="Order" class="form-control">
+                            <span asp-validation-for="Order" class="text-danger"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+
+                    </form>
+                </div>
+            </div><!--end card-body-->
+        </div><!--end card-->
+    </div>
+</div>

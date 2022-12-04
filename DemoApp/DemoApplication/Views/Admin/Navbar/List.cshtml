@@ -1,0 +1,44 @@
+﻿@using DemoApplication.ViewModels.Admin.Navbar
+@model List<ListItemViewModel>
+
+<div class="container">
+    <div class="row justify-content-end">
+        <div class="">
+            <a asp-route="admin-navbar-add" target="_blank" class="btn btn-secondary">Add new Navbar</a>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">ToURL</th>
+                    <th scope="col">Order</th>
+                    <th scope="col">IsOnHeader</th>
+                    <th scope="col">IsOnFooter</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var navbar in Model)
+                {
+                    <tr>
+                        <th scope="row">@navbar.Name</th>
+                        <td>@navbar.ToURL</td>
+                        <td>@navbar.Order</td>
+                        <td>@navbar.IsOnHeader</td>
+                        <td>@navbar.IsOnFooter</td>
+                        <td><a asp-route="admin-navbar-update" asp-route-id="@navbar.Id" target="_blank" class="btn btn-secondary">Update Navbar</a></td>
+                        <td> <form class="d-none" method="POST" asp-route="admin-navbar-delete" asp-route-id="@navbar.Id" id="update-@navbar.Id">
+                        </form>
+                        <button type="submit" form="update-@navbar.Id"><i class="las la-trash-alt text-secondary font-16"></i></button></td>
+                        
+                      
+
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
